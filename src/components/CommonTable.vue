@@ -29,7 +29,7 @@
     </el-table>
 
     <!-- 对话框提示 -->
-    <common-dialog :dialogVisible.sync='dialogVisible'></common-dialog>
+    <common-dialog :dialogVisible.sync='dialogVisible' :tableData.sync='tableData' :column.sync="column" :tableIndex.sync="tableIndex"></common-dialog>
   </div>
 </template>
 
@@ -39,6 +39,7 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      tableIndex:0,
     };
   },
   props: {
@@ -63,6 +64,7 @@ export default {
     },
     edit(index,row) {
       this.dialogVisible = true;
+      this.tableIndex = index;
       console.log(index);
     },
     // 删除按钮的方法
